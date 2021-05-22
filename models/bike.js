@@ -1,0 +1,15 @@
+const mongoose = require("mongoose");
+
+const bikeSchema = new mongoose.Schema(
+  {
+    brand: String,
+    model: String,
+    year: Number,
+    engine: Number,
+  },
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = mongoose.model("Bike", bikeSchema);
