@@ -6,6 +6,7 @@ const bikeSchema = new mongoose.Schema(
     model: String,
     year: Number,
     engine: Number,
+    bikeImage: { path: String, filename: String },
   },
   {
     timestamps: true,

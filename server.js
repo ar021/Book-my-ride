@@ -13,6 +13,7 @@ require("dotenv").config();
 // connect to the MongoDB with mongoose
 require("./config/database");
 require("./config/passport");
+require("./config/cloudinary");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
