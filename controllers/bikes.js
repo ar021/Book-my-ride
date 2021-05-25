@@ -1,8 +1,9 @@
 const Bike = require("../models/bike");
 
-function index(req, res, next) {
-  res.render("bikes/index");
-  // console.log(req.user);
+function index(req, res) {
+  Bike.find({}, function (err, bikes) {
+    res.render("bikes/index", { title: "All Bikes", bikes });
+  });
 }
 
 function newBike(req, res) {
@@ -20,7 +21,7 @@ function create(req, res) {
   bike.save(function (err) {
     console.log(bike);
     if (err) return res.render("bikes/new");
-    res.redirect("bikes/new");
+    res.redirect("bikes/");
   });
 }
 

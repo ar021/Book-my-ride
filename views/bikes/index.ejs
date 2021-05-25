@@ -19,30 +19,34 @@
   </head>
   <body>
     <a href="/bikes/new">Add a Bike</a>
-    <div class="bikes">
-      <div class="card" style="width: 18rem">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Apache_RTR_180_V2.jpg/1024px-The_Apache_RTR_180_V2.jpg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+    <div class="bikes card-group row row-cols-1 row-cols-md-4 g-5">
+      <% bikes.forEach(function(bike){ %>
+      <div class="col">
+        <div class="card h-100" style="width: 18rem">
+          <img
+            src="<%= bike.bikeImage.path %>"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title"><%= bike.model %></h5>
+            <p class="card-text">Some quick example text</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Manufacturer: <%= bike.brand %></li>
+            <li class="list-group-item">Release Year: <%= bike.year %></li>
+            <li class="list-group-item">Model: <%= bike.model %></li>
+            <li class="list-group-item">
+              Engine Capacity(cc): <%= bike.engine %>
+            </li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
         </div>
       </div>
+      <% }); %>
     </div>
   </body>
 </html>
