@@ -21,7 +21,19 @@ function create(req, res) {
   bike.save(function (err) {
     console.log(bike);
     if (err) return res.render("bikes/new");
-    res.redirect("bikes/");
+    res.redirect("/bikes");
+  });
+}
+
+function delBike(req, res, next) {
+  Bike.findOneAndDelete({ _id: req.params.id }, function (err, bike) {
+    if (err) {
+      console.log(err);
+      res.redirect("/bikes");
+    } else {
+      console.log("deleted Bike:", bike);
+      res.redirect("/bikes");
+    }
   });
 }
 
@@ -29,4 +41,5 @@ module.exports = {
   index,
   new: newBike,
   create,
+  delBike,
 };
