@@ -10,6 +10,7 @@ const bikeSchema = new mongoose.Schema(
     price: Number,
     engineType: String,
     power: Number,
+    avatar: String,
   },
   {
     timestamps: true,
