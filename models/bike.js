@@ -7,6 +7,9 @@ const bikeSchema = new mongoose.Schema(
     year: Number,
     engine: Number,
     bikeImage: { path: String, filename: String },
+    price: Number,
+    engineType: String,
+    power: Number,
   },
   {
     timestamps: true,

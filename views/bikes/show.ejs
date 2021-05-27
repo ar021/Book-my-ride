@@ -18,11 +18,9 @@
     <title>Document</title>
   </head>
   <body>
-    <a href="/bikes/new">Add a Bike</a>
-    <div class="bikes card-group row row-cols-1 row-cols-md-4 g-5">
-      <% bikes.forEach(function(bike){ %>
+    <div class="bikes card-group row row-cols-1 row-cols-md-1">
       <div class="col">
-        <div class="card h-100" style="width: 18rem">
+        <div class="card h-100">
           <img
             src="<%= bike.bikeImage.path %>"
             class="card-img-top"
@@ -39,19 +37,16 @@
             <li class="list-group-item">
               Engine Capacity(cc): <%= bike.engine %>
             </li>
+            <li class="list-group-item">Engine Type: <%= bike.engineType %></li>
+            <li class="list-group-item">Power(HP): <%= bike.power %></li>
+            <li class="list-group-item">In Stock: <%= bike.inStock %></li>
             <li class="list-group-item">Price: <%= bike.price %></li>
           </ul>
           <div class="card-body">
-            <form action="/bikes/<%=bike._id%>?_method=DELETE" method="POST">
-              <button type="submit" class="btn white-text btn-danger">
-                DELETE
-              </button>
-            </form>
-            <a href="/bikes/<%=bike._id%>" class="card-link">MORE INFO</a>
+            <a href="/bikes" class="card-link">BACK TO ALL BIKES</a>
           </div>
         </div>
       </div>
-      <% }); %>
     </div>
   </body>
 </html>
