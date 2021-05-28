@@ -1,11 +1,15 @@
 const User = require("../models/user");
+const Bike = require("../models/bike");
 
 function index(req, res, next) {
-  res.render("users/index", {
-    user: req.user,
-    // name: req.query.name,
+  Bike.find({}, function (err, bikes) {
+    res.render("users/index", {
+      user: req.user,
+      bikes,
+      // name: req.query.name,
+    });
+    console.log(req.user);
   });
-  console.log(req.user);
 }
 
 module.exports = {

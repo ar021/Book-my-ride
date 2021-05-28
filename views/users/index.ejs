@@ -25,6 +25,7 @@
       <br />
       <br />
       <div class="container">
+        <!-- User Card-->
         <div class="card mb-3" style="max-width: 800px">
           <div class="row g-0">
             <div class="col-md-2">
@@ -45,17 +46,17 @@
             </div>
           </div>
         </div>
-        <!-- Button trigger modal -->
+        <!-- Button trigger modal(Form for Booking) -->
         <button
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
-          Launch demo modal
+          Book Your Test Drive
         </button>
 
-        <!-- Modal -->
+        <!-- Modal(Form for Booking)  -->
         <div
           class="modal fade"
           id="exampleModal"
@@ -65,34 +66,39 @@
         >
           <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
-                  Book Your Test Drive
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
-                <div class="form-group">
-                  <form
-                    id=""
-                    action="/bikes"
-                    method="POST"
-                    enctype="multipart/form-data"
-                  >
+              <form
+                id=""
+                action="/users/<%= user._id %>/bookings"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">
+                    Book Your Test Drive
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
                     <div class="input-group mb-3">
                       <label class="input-group-text" for="inputGroupSelect01"
                         >Select Bike</label
                       >
-                      <select class="form-select" id="inputGroupSelect01">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                      <select
+                        class="form-select"
+                        id="inputGroupSelect01"
+                        name="bike"
+                      >
+                        <% bikes.forEach(function(bike){ %>
+                        <option value="<%= bike%>">
+                          <%= bike.brand %> / <%= bike.model %>
+                        </option>
+                        <% }); %>
                       </select>
                     </div>
                     <div class="input-group mb-3">
@@ -106,29 +112,50 @@
                         class="form-control"
                         aria-label="Sizing example input"
                         aria-describedby="inputGroup-sizing-default"
+                        name="date"
                       />
                     </div>
-                  </form>
+                  </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <button type="button" class="btn btn-primary">Submit</button>
-              </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
           </div>
+        </div>
+        <!-- Booking -->
+        <br />
+        <div class="bookings">
+          <h3>Test Drive Appointments</h3>
+          <% if(user.bookings.length){ %>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Model</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">.</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <% } %>
         </div>
       </div>
       <% } else { %>
       <a href="/auth/google"
         ><i class="fab fa-google-plus-g"> Login with Google</i></a
       >
+      <h3>Please Login to Book a test drive or View your appointments</h3>
       <% } %>
     </div>
   </body>
