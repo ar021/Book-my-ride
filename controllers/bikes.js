@@ -27,8 +27,10 @@ function create(req, res) {
   // console.log(req.file);
   let bike = new Bike(req.body);
   // console.log(bike);
-  bike.bikeImage.path = req.file.path;
-  bike.bikeImage.filename = req.file.filename;
+  if (req.file) {
+    bike.bikeImage.path = req.file.path;
+    bike.bikeImage.filename = req.file.filename;
+  }
   // console.log(`new bike ${bike}`);
   bike.save(function (err) {
     console.log(bike);
@@ -37,7 +39,7 @@ function create(req, res) {
       res.redirect("/bikes/new");
     } else {
       console.log(`Success ${bike}`);
-      res.redirect("bikes/show", { bike });
+      res.redirect(`/bikes/${bike._id}`);
     }
   });
 }
@@ -66,13 +68,15 @@ function updateBike(req, res) {
       bike.model = req.body.model;
       bike.year = req.body.year;
       bike.engine = req.body.engine;
-      bike.bikeImage.path = req.file.path;
-      bike.bikeImage.filename = req.file.filename;
+      if (req.file) {
+        bike.bikeImage.path = req.file.path;
+        bike.bikeImage.filename = req.file.filename;
+      }
       bike.price = req.body.price;
       bike.engineType = req.body.engineType;
       bike.power = req.body.power;
       bike.save();
-      res.redirect(`/bikes`);
+      res.redirect(`/bikes/${bike._id}`);
     }
   });
 }
