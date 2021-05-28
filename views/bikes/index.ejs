@@ -30,7 +30,6 @@
           />
           <div class="card-body">
             <h5 class="card-title"><%= bike.model %></h5>
-            <p class="card-text">Some quick example text</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Manufacturer: <%= bike.brand %></li>
@@ -47,7 +46,8 @@
                 DELETE
               </button>
             </form>
-            <a href="/bikes/<%=bike._id%>" class="card-link">MORE INFO</a>
+            <a href="/bikes/<%=bike._id%>" class="card-link">VIEW MODEL</a>
+            <a href="/bikes/<%=bike._id%>/edit" class="card-link">EDIT</a>
           </div>
         </div>
       </div>

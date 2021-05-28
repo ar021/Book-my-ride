@@ -37,7 +37,42 @@ function create(req, res) {
       res.redirect("/bikes/new");
     } else {
       console.log(`Success ${bike}`);
+      res.redirect("bikes/show", { bike });
+    }
+  });
+}
+
+function edit(req, res) {
+  Bike.findById({ _id: req.params.id }, function (err, bike) {
+    if (err) {
+      // console.log(`iam ${err}`);
       res.redirect("/bikes");
+    } else {
+      // console.log(`iam2 ${err}`);
+      res.render("bikes/edit", { bike });
+    }
+  });
+}
+
+function updateBike(req, res) {
+  console.log(req.body);
+  Bike.findById({ _id: req.params.id }, function (err, bike) {
+    console.log(req.body);
+    if (err) {
+      console.log(err);
+      res.redirect(`/bikes/${bike._id}`);
+    } else {
+      bike.brand = req.body.brand;
+      bike.model = req.body.model;
+      bike.year = req.body.year;
+      bike.engine = req.body.engine;
+      bike.bikeImage.path = req.file.path;
+      bike.bikeImage.filename = req.file.filename;
+      bike.price = req.body.price;
+      bike.engineType = req.body.engineType;
+      bike.power = req.body.power;
+      bike.save();
+      res.redirect(`/bikes`);
     }
   });
 }
@@ -59,5 +94,7 @@ module.exports = {
   show,
   new: newBike,
   create,
+  edit,
+  updateBike,
   delBike,
 };

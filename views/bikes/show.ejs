@@ -18,7 +18,10 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="bikes card-group row row-cols-1 row-cols-md-1">
+    <div
+      class="bikes card-group row row-cols-1 row-cols-md-1"
+      style="width: 500px"
+    >
       <div class="col">
         <div class="card h-100">
           <img
@@ -28,7 +31,6 @@
           />
           <div class="card-body">
             <h5 class="card-title"><%= bike.model %></h5>
-            <p class="card-text">Some quick example text</p>
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item">Manufacturer: <%= bike.brand %></li>
