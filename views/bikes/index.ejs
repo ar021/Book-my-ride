@@ -19,7 +19,8 @@
   </head>
   <body>
     <a href="/bikes/new">Add a Bike</a>
-    <div class="bikes card-group row row-cols-1 row-cols-md-4 g-5">
+    <!-- <div class="bikes card-group row row-cols-1 row-cols-md-4 g-5"> -->
+    <div class="bikes card-deck row g-5">
       <% bikes.forEach(function(bike){ %>
       <div class="col">
         <div class="card h-100" style="width: 18rem">
