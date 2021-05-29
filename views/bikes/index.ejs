@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,46 +12,70 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/848337fddf.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <a href="/bikes/new">Add a Bike</a>
-    <!-- <div class="bikes card-group row row-cols-1 row-cols-md-4 g-5"> -->
-    <div class="bikes card-deck row g-5">
-      <% bikes.forEach(function(bike){ %>
-      <div class="col">
-        <div class="card h-100" style="width: 18rem">
-          <img
-            src="<%= bike.bikeImage.path %>"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <h5 class="card-title"><%= bike.model %></h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Manufacturer: <%= bike.brand %></li>
-            <li class="list-group-item">Release Year: <%= bike.year %></li>
-            <li class="list-group-item">Model: <%= bike.model %></li>
-            <li class="list-group-item">
-              Engine Capacity(cc): <%= bike.engine %>
-            </li>
-            <li class="list-group-item">Price: <%= bike.price %></li>
-          </ul>
-          <div class="card-body">
-            <form action="/bikes/<%=bike._id%>?_method=DELETE" method="POST">
-              <button type="submit" class="btn white-text btn-danger">
-                DELETE
-              </button>
-            </form>
-            <a href="/bikes/<%=bike._id%>" class="card-link">VIEW MODEL</a>
-            <% if(user){ %>
-            <a href="/bikes/<%=bike._id%>/edit" class="card-link">EDIT</a>
-            <% } %>
+    <div class="container">
+      <a href="/bikes/new">Add a Bike</a>
+
+      <% if (user) { %>
+      <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a href="/users/<%=user._id%>">User Profile</a>
+      <% } else { %>
+      <a href="/auth/google"
+        ><i class="fab fa-google-plus-g"> Login with Google</i></a
+      >
+      <h3>Please Login to Book a test drive or View your appointments</h3>
+      <% } %>
+      <br />
+      <br />
+
+      <div class="bikes card-group row row-cols-1 row-cols-md-3 g-5">
+        <% bikes.forEach(function(bike){ %>
+        <div class="col">
+          <div class="card h-100" style="width: 18rem">
+            <img
+              src="<%= bike.bikeImage.path %>"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><%= bike.model %></h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Manufacturer: <%= bike.brand %></li>
+              <li class="list-group-item">Release Year: <%= bike.year %></li>
+              <li class="list-group-item">Model: <%= bike.model %></li>
+              <li class="list-group-item">
+                Engine Capacity(cc): <%= bike.engine %>
+              </li>
+              <li class="list-group-item">Price: <%= bike.price %></li>
+            </ul>
+            <div class="card-body">
+              <a href="/bikes/<%=bike._id%>" class="card-link">VIEW MODEL</a>
+              <% if(user){ %>
+              <a href="/bikes/<%=bike._id%>/edit" class="card-link">EDIT</a>
+              <a href="/bikes/<%=bike._id%>/edit" class="card-link"
+                >ADD TO MY LIST</a
+              >
+
+              <form action="/bikes/<%=bike._id%>?_method=DELETE" method="POST">
+                <br />
+                <button type="submit" class="btn white-text btn-danger">
+                  DELETE
+                </button>
+              </form>
+
+              <% } %>
+            </div>
           </div>
         </div>
+        <% }); %>
       </div>
-      <% }); %>
     </div>
   </body>
 </html>

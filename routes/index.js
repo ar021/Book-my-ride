@@ -17,14 +17,14 @@ router.get(
 router.get(
   "/oauth2callback",
   passport.authenticate("google", {
-    successRedirect: "/users",
+    successRedirect: "/bikes",
     failureRedirect: "/",
   })
 );
 // OAuth logout route
 router.get("/logout", function (req, res) {
   req.logout();
-  res.redirect("/users");
+  res.redirect("/bikes");
 });
 
 module.exports = router;
