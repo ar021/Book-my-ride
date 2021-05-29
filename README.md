@@ -9,7 +9,6 @@
 ---
 
 - Site : [Book My Ride](https://book-my-ride-sei.herokuapp.com/)
-- GitHub : [Book My Ride](https://github.com/ar021/Book-my-ride)
 - Technologies used : HTML, CSS, JavaScript, Bootstrap, Cloudinary, MongoDB, Express.js, Node.js
 - Intial Setup :
     -   Install Dependencies
