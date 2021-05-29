@@ -1,33 +1,81 @@
-# SEI-FLEX-38 PROJECT - 1
-![](images-md/landing.png)
+# SEI-FLEX-38 PROJECT - 2
 
-# TETRIS - BROWSER BASED GAME  🎮 🎲
+![](images-md/home.png)
 
-#### This is classic Tetris game. It is the addictive puzzle game embracing our universal desire to create order out of chaos....  The goal of Tetris is to score as many points as possible by clearing horizontal lines of Blocks.  *Possiblity* *of* *some* *twists* *comming* *in* *near* *future*...🙊
-***
-*   Game Play : [Click here](https://ar021.github.io/Tetris/)
-*   Technologies used : HTML,CSS,JavaScript,Bootstrap
-*   Game Play Screenshots :
+# Book My Ride - Full-Stack CRUD App
 
-![](images-md/score.png)
-![](images-md/game-over.png)
-![](images-md/how-to.png)
-***
-## Challenges Faced 
-* Figuring out the fundamentals of the game in terms of programming
-* Writing function which prevent tetro from moving out of the game board while rotating near the edge
-* Writing Scoring Row function
-* Some big fixes - solution was very simple ( without writing a single code ) but journey to identify the problem consummed some sleeps 
-***
+### This is Full-Stack CRUD booking system. Where logged in user can view/updated/add/delete bikes. Logged in user can view thier profile and book an appointment for test drive. User can view bikes without loggin in.
+
+---
+
+- Site : [Book My Ride](https://book-my-ride-sei.herokuapp.com/)
+- GitHub : [Book My Ride](https://github.com/ar021/Book-my-ride)
+- Technologies used : HTML, CSS, JavaScript, Bootstrap, Cloudinary, MongoDB, Express.js, Node.js
+- Intial Setup :
+    -   Install Dependencies
+    ```
+    npm install
+    ```
+    - Set up Google Cloud Platform for oAuth
+    - Set up cloudinary for img Database
+    - Add Enviorment Variables
+    ```
+    DATABASE_URL=<...database>
+    GOOGLE_CLIENT_ID=<...from Google Cloud Platform>
+    GOOGLE_SECRET=<...from Google Cloud Platform>
+    GOOGLE_CALLBACK=<...from Google Cloud Platform>
+    CLOUDINARY_URL=<...from Cloudinary>
+    CLOUD_NAME=<...from Cloudinary>
+    
+    API_KEY=<...from Cloudinary>
+    API_SECRET=<...from Cloudinary>
+
+    SESSION_SECRET=<...your own>
+    ```
+    - Development Runtime
+    ```
+    npm run dev
+    ```
+- Screenshots :
+
+![](images-md/home.png)
+![](images-md/all-bikes.png)
+![](images-md/all-bikes-login.png)
+![](images-md/view-bike.png)
+![](images-md/view-bike-login.png)
+![](images-md/update-bike.png)
+![](images-md/add-bike.png)
+![](images-md/view-profile.png)
+
+---
+
+## Challenges Faced
+
+- Working with complex ERD
+- Implementing cloudinary for img storage
+- Implementing oAuth 
+- Writing Scoring Row function
+
+---
+
 ## Key Learings
-* On the game praposal day, we were shown some games built by alumini and it was beyond my imagination that i could achive something like that. *My Tetris* is not there yet but i've broken the barrier.
-* How to bring together all the piece i have learnt during our class
-* How to break down the problem and how to work towards the solution
-* How to google *stuff* and mold into your own code
-***
+
+- How to do a restful route
+- How to performe CRUD
+- How to do oAuth
+- How to integrate Database
+- How to have img input...list goes on
+
+---
+
 ## Future Goals
-* To show preview of upcoming Tetro
-* Added dificulty levels and some bonus
-* Add music, animation, css etc
 
+Stage 1
+- Implementing Booking Model
+- Polishing UI
+- Cleaning up the Code
 
+Stage 2
+- Implementing Power User
+- Provide user booking confirmation
+- Implementing Google Map api
