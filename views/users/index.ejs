@@ -89,13 +89,9 @@
                       <label class="input-group-text" for="inputGroupSelect01"
                         >Select Bike</label
                       >
-                      <select
-                        class="form-select"
-                        id="inputGroupSelect01"
-                        name="bike"
-                      >
+                      <select class="form-select" id="inputGroupSelect01">
                         <% bikes.forEach(function(bike){ %>
-                        <option value="<%= bike%>">
+                        <option name="<%= bike.id%>" value="<%= bike.id%>">
                           <%= bike.brand %> / <%= bike.model %>
                         </option>
                         <% }); %>
@@ -150,7 +146,18 @@
           </table>
           <% } %>
         </div>
+        <form
+          id=""
+          action="/users/<%= user._id %>/bookings"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <label for="">Bike</label>
+          <input type="text" name="bike" />
+          <button type="submit">submit</button>
+        </form>
       </div>
+
       <% } else { %>
       <a href="/auth/google"
         ><i class="fab fa-google-plus-g"> Login with Google</i></a

@@ -48,7 +48,9 @@
               </button>
             </form>
             <a href="/bikes/<%=bike._id%>" class="card-link">VIEW MODEL</a>
+            <% if(user){ %>
             <a href="/bikes/<%=bike._id%>/edit" class="card-link">EDIT</a>
+            <% } %>
           </div>
         </div>
       </div>

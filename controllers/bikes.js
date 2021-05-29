@@ -2,7 +2,7 @@ const Bike = require("../models/bike");
 
 function index(req, res) {
   Bike.find({}, function (err, bikes) {
-    res.render("bikes/index", { title: "All Bikes", bikes });
+    res.render("bikes/index", { title: "All Bikes", bikes, user: req.user });
   });
 }
 
