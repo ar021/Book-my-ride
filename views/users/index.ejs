@@ -89,9 +89,13 @@
                       <label class="input-group-text" for="inputGroupSelect01"
                         >Select Bike</label
                       >
-                      <select class="form-select" id="inputGroupSelect01">
+                      <select
+                        class="form-select"
+                        id="inputGroupSelect01"
+                        name="bike"
+                      >
                         <% bikes.forEach(function(bike){ %>
-                        <option name="<%= bike.id%>" value="<%= bike.id%>">
+                        <option value="<%= bike.id%>">
                           <%= bike.brand %> / <%= bike.model %>
                         </option>
                         <% }); %>

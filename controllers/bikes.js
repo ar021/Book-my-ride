@@ -23,7 +23,7 @@ function newBike(req, res) {
 }
 
 function create(req, res) {
-  // console.log(req.body);
+  console.log("new bike", req.body);
   // console.log(req.file);
   let bike = new Bike(req.body);
   // console.log(bike);

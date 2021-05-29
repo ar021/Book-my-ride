@@ -1,7 +1,7 @@
 const User = require("../models/user");
 
-function create(req, res, next) {
-  console.log("###request", req);
+function create(req, res) {
+  console.log("###request", req.body);
   console.log("###respond", res);
   User.findById(req.params.id, function (err, user) {
     user.bookings.push(req.body);

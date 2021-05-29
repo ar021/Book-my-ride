@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 
 const bookingSchema = new mongoose.Schema(
   {
-    bike: { type: Schema.Types.ObjectId, ref: "Bike" },
+    // bike: { type: Schema.Types.ObjectId, ref: "Bike" },
+    bike: String,
     date: Date,
   },
   {
