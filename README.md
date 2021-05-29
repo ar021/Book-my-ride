@@ -4,7 +4,7 @@
 
 # Book My Ride - Full-Stack CRUD App
 
-### This is Full-Stack CRUD booking system. Where logged in user can view/updated/add/delete bikes. Logged in user can view thier profile and book an appointment for test drive. User can view bikes without loggin in.
+#### This is Full-Stack CRUD booking system. Where logged in user can view/updated/add/delete bikes. Logged in user can view thier profile and book an appointment for test drive. User can view bikes without loggin in.
 
 ---
 
