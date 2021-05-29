@@ -17,16 +17,17 @@
       src="https://kit.fontawesome.com/848337fddf.js"
       crossorigin="anonymous"
     ></script>
+    <title>View User</title>
   </head>
   <body>
-    <div style="font-size: small">
+    <div class="container">
+      <%- include('../partials/navbar') %>
+      <br />
+      <br />
       <% if (user) { %>
-      <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-      <br />
-      <br />
-      <div class="container">
+      <div class="">
         <!-- User Card-->
-        <div class="card mb-3" style="max-width: 800px">
+        <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-2">
               <img
@@ -47,20 +48,52 @@
           </div>
         </div>
 
+        <!--Bike to ADD Section  -->
+
         <div class="bikes-to-add">
           <form id="" action="/users/<%= user._id %>/bikes" method="POST">
-            <select name="bikeId">
-              <%- bikes.map(bike=> `
-              <option value="${bike._id}">${bike.brand}/${bike.model}</option>
-              ` ).join('') %>
-            </select>
-            <button type="submit">Add to List</button>
+            <div class="mb-3">
+              <label class="form-label" id="user-select-bike"
+                >Select a Bike:</label
+              >
+              <select name="bikeId" class="form-select">
+                <%- bikes.map(bike=> `
+                <option value="${bike._id}">${bike.brand}/${bike.model}</option>
+                ` ).join('') %>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-outline-info">
+              Add Booking List
+            </button>
           </form>
-          <ul>
+          <br />
+          <!-- <ul>
             <%- user.vehicale.map(vehicale=> `
             <li>${vehicale.brand} <small>${vehicale.model}</small></li>
+
             ` ).join('') %>
-          </ul>
+          </ul> -->
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Model</th>
+                <th scope="col">Price</th>
+                <!-- <th scope="col">.</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <% user.vehicale.forEach(function(v){ %>
+              <tr>
+                <th scope="col"><%= v.brand %></th>
+                <th scope="col"><%= v.model %></th>
+                <th scope="col"><%= v.price %></th>
+                <!-- <th scope="col">X</th> -->
+              </tr>
+              <% });%>
+            </tbody>
+          </table>
         </div>
 
         <!-- Button trigger modal(Form for Booking) -->
@@ -150,10 +183,10 @@
         </div> -->
 
         <!-- Booking -->
-        <br />
+        <!-- <br />
         <div class="bookings">
           <h3>Test Drive Appointments</h3>
-          <% if(user.bookings.length){ %>
+          <% if(user.vehicale.length){ %>
           <table class="table">
             <thead>
               <tr>
@@ -167,7 +200,7 @@
             <tbody></tbody>
           </table>
           <% } %>
-        </div>
+        </div> -->
         <!-- <form id="" action="/users/<%= user._id %>/bookings" method="POST">
           <label for="">Bike</label>
           <input type="text" name="bike" />
@@ -179,7 +212,6 @@
       <a href="/auth/google"
         ><i class="fab fa-google-plus-g"> Login with Google</i></a
       >
-      <h3>Please Login to Book a test drive or View your appointments</h3>
       <% } %>
     </div>
   </body>

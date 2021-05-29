@@ -88,6 +88,7 @@ function addToVehicale(req, res) {
     // console.log("user vehicale", req.body.bikeId);
     user.vehicale.push(req.body.bikeId);
     user.save(function (err) {
+      console.log("userwithvehicale", user);
       res.redirect(`/users/${user._id}`);
     });
   });

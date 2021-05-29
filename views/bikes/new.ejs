@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,37 +12,64 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/848337fddf.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>New Bike</title>
   </head>
   <body>
-    <div class="form-group">
-      <form id="" action="/bikes" method="POST" enctype="multipart/form-data">
-        <label>Brand:</label>
-        <input type="text" name="brand" />
-        <label>Model:</label>
-        <input type="text" name="model" />
-        <label>Year:</label>
-        <input type="number" name="year" />
-        <label>Engine Capacity(cc):</label>
-        <input type="number" name="engine" />
-        <label>Engine Type:</label>
-        <select name="engineType">
-          <option value="Single">Single</option>
-          <option value="Parallel Twin">Parallel Twin</option>
-          <option value="V-Twin">V-Twin</option>
-          <option value="Inline-4">Inline-4</option>
-        </select>
-        <label>Power(HP):</label>
-        <input type="number" name="power" />
-        <label>Price:</label>
-        <input type="number" name="price" />
-        <input
-          type="file"
-          name="bikeImage"
-          accept="image/png, image/jpeg, image/jpg"
-        />
-        <input type="submit" value="Add Bike" />
-      </form>
+    <div class="container">
+      <%- include('../partials/navbar') %>
+      <br />
+      <br />
+      <div class="form-group">
+        <form id="" action="/bikes" method="POST" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label>Brand:</label> <input type="text" name="brand" />
+          </div>
+          <div class="mb-3">
+            <label>Model:</label> <input type="text" name="model" />
+          </div>
+          <div class="mb-3">
+            <label>Year:</label> <input type="number" name="year" />
+          </div>
+          <div class="mb-3">
+            <label>Engine Capacity(cc):</label>
+            <input type="number" name="engine" />
+          </div>
+          <div class="mb-3">
+            <label>Engine Type:</label>
+            <select name="engineType">
+              <option value="Single">Single</option>
+              <option value="Parallel Twin">Parallel Twin</option>
+              <option value="V-Twin">V-Twin</option>
+              <option value="Inline-4">Inline-4</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Power(HP):</label> <input type="number" name="power" />
+          </div>
+          <div class="mb-3">
+            <label>Price:</label> <input type="number" name="price" />
+          </div>
+          <div class="mb-3">
+            <input
+              type="file"
+              name="bikeImage"
+              accept="image/png, image/jpeg, image/jpg"
+            />
+          </div>
+          <div class="mb-3">
+            <input
+              type="submit"
+              value="Add Bike"
+              class="btn btn-outline-info"
+            />
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>

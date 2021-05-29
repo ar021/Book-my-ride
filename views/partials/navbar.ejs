@@ -1,0 +1,30 @@
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/bikes">All Bikes</a>
+  </li>
+  <% if (user) { %>
+
+  <li class="nav-item">
+    <a href="/bikes/new" class="nav-link">Add Bike</a>
+  </li>
+
+  <li class="nav-item">
+    <a href="/users/<%=user._id%>" class="nav-link">View Profile</a>
+  </li>
+  <li class="nav-item" id="log-in-out">
+    <a class="nav-link" href="/logout"
+      ><i class="fas fa-sign-out-alt"></i> Logout</a
+    >
+  </li>
+  <% } else { %>
+  <li class="nav-item" id="log-in-out">
+    <a class="nav-link" href="/auth/google"
+      ><i class="fab fa-google-plus-g"> Login with Google</i></a
+    >
+  </li>
+
+  <% } %>
+</ul>

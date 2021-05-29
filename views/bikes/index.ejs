@@ -17,20 +17,11 @@
       src="https://kit.fontawesome.com/848337fddf.js"
       crossorigin="anonymous"
     ></script>
+    <title>Bikes</title>
   </head>
   <body>
     <div class="container">
-      <a href="/bikes/new">Add a Bike</a>
-
-      <% if (user) { %>
-      <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-      <a href="/users/<%=user._id%>">User Profile</a>
-      <% } else { %>
-      <a href="/auth/google"
-        ><i class="fab fa-google-plus-g"> Login with Google</i></a
-      >
-      <h3>Please Login to Book a test drive or View your appointments</h3>
-      <% } %>
+      <%- include('../partials/navbar') %>
       <br />
       <br />
 
