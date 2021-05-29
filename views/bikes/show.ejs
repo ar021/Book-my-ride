@@ -45,6 +45,18 @@
             <li class="list-group-item">Price: <%= bike.price %></li>
           </ul>
           <div class="card-body">
+            <% if (user) { %>
+            <a href="/bikes/<%=bike._id%>/edit" class="card-link"
+              >ADD TO MY LIST</a
+            >
+            <form action="/bikes/<%=bike._id%>?_method=DELETE" method="POST">
+              <br />
+              <button type="submit" class="btn white-text btn-danger">
+                DELETE
+              </button>
+            </form>
+            <% } %>
+
             <a href="/bikes" class="card-link">BACK TO ALL BIKES</a>
           </div>
         </div>

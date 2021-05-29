@@ -19,7 +19,7 @@
     ></script>
   </head>
   <body>
-    <div style="font-size: large">
+    <div style="font-size: small">
       <% if (user) { %>
       <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
       <br />
@@ -46,18 +46,35 @@
             </div>
           </div>
         </div>
+
+        <div class="bikes-to-add">
+          <form id="" action="/users/<%= user._id %>/bikes" method="POST">
+            <select name="bikeId">
+              <%- bikes.map(bike=> `
+              <option value="${bike._id}">${bike.brand}/${bike.model}</option>
+              ` ).join('') %>
+            </select>
+            <button type="submit">Add to List</button>
+          </form>
+          <ul>
+            <%- user.vehicale.map(vehicale=> `
+            <li>${vehicale.brand} <small>${vehicale.model}</small></li>
+            ` ).join('') %>
+          </ul>
+        </div>
+
         <!-- Button trigger modal(Form for Booking) -->
-        <button
+        <!-- <button
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
           Book Your Test Drive
-        </button>
+        </button> -->
 
         <!-- Modal(Form for Booking)  -->
-        <div
+        <!-- <div
           class="modal fade"
           id="exampleModal"
           tabindex="-1"
@@ -130,7 +147,8 @@
               </form>
             </div>
           </div>
-        </div>
+        </div> -->
+
         <!-- Booking -->
         <br />
         <div class="bookings">
@@ -150,16 +168,11 @@
           </table>
           <% } %>
         </div>
-        <form
-          id=""
-          action="/users/<%= user._id %>/bookings"
-          method="POST"
-          enctype="multipart/form-data"
-        >
+        <!-- <form id="" action="/users/<%= user._id %>/bookings" method="POST">
           <label for="">Bike</label>
           <input type="text" name="bike" />
           <button type="submit">submit</button>
-        </form>
+        </form> -->
       </div>
 
       <% } else { %>

@@ -3,13 +3,18 @@ var router = express.Router();
 const bikesCtrl = require("../controllers/bikes");
 const cloudinary = require("../config/cloudinary");
 
-router.get("/", bikesCtrl.index);
-router.get("/new", bikesCtrl.new);
-router.get("/:id", bikesCtrl.show);
-router.get("/:id/edit", bikesCtrl.edit);
-router.put("/:id", cloudinary.parser.single("bikeImage"), bikesCtrl.updateBike);
-router.post("/", cloudinary.parser.single("bikeImage"), bikesCtrl.create);
+router.get("/bikes", bikesCtrl.index);
+router.get("/bikes/new", bikesCtrl.new);
+router.get("/bikes/:id", bikesCtrl.show);
+router.get("/bikes/:id/edit", bikesCtrl.edit);
+router.put(
+  "/bikes/:id",
+  cloudinary.parser.single("bikeImage"),
+  bikesCtrl.updateBike
+);
+router.post("/bikes", cloudinary.parser.single("bikeImage"), bikesCtrl.create);
+router.post("/users/:id/bikes", bikesCtrl.addToVehicale);
 
-router.delete("/:id", bikesCtrl.delBike);
+router.delete("/bikes/:id", bikesCtrl.delBike);
 
 module.exports = router;

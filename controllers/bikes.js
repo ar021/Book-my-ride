@@ -1,4 +1,5 @@
 const Bike = require("../models/bike");
+const User = require("../models/user");
 
 function index(req, res) {
   Bike.find({}, function (err, bikes) {
@@ -13,7 +14,7 @@ function show(req, res) {
       res.redirect("/bikes");
     } else {
       console.log("Bike:", bike);
-      res.render("bikes/show", { bike });
+      res.render("bikes/show", { bike, user: req.user });
     }
   });
 }
@@ -81,6 +82,17 @@ function updateBike(req, res) {
   });
 }
 
+function addToVehicale(req, res) {
+  User.findById(req.params.id, function (err, user) {
+    // console.log("--reqBody", req.body);
+    // console.log("user vehicale", req.body.bikeId);
+    user.vehicale.push(req.body.bikeId);
+    user.save(function (err) {
+      res.redirect(`/users/${user._id}`);
+    });
+  });
+}
+
 function delBike(req, res, next) {
   Bike.findOneAndDelete({ _id: req.params.id }, function (err, bike) {
     if (err) {
@@ -101,4 +113,5 @@ module.exports = {
   edit,
   updateBike,
   delBike,
+  addToVehicale,
 };

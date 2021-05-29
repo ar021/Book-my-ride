@@ -59,16 +59,13 @@
               <a href="/bikes/<%=bike._id%>" class="card-link">VIEW MODEL</a>
               <% if(user){ %>
               <a href="/bikes/<%=bike._id%>/edit" class="card-link">EDIT</a>
-              <a href="/bikes/<%=bike._id%>/edit" class="card-link"
-                >ADD TO MY LIST</a
-              >
 
-              <form action="/bikes/<%=bike._id%>?_method=DELETE" method="POST">
+              <!-- <form action="/bikes/<%=bike._id%>?_method=DELETE" method="POST">
                 <br />
                 <button type="submit" class="btn white-text btn-danger">
                   DELETE
                 </button>
-              </form>
+              </form> -->
 
               <% } %>
             </div>
